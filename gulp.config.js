@@ -13,13 +13,13 @@ const config = {
     ],
     watches: [
         "./src/app/**/*.*",
-        "!./src/app/**/*.scss",
+        "!./src/app/**/*.css",
         "!./src/app/web/**/*.*",
         "!./src/app/scripts/**/*.*",
     ],
     clientWatches: [
         "./src/app/scripts/**/*.*",
-        "!./src/app/**/*.scss"
+        "!./src/app/**/*.css"
     ],
     manifests: [
         "./src/manifest/**/*.*",

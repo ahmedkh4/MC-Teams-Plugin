@@ -6,6 +6,8 @@ import { MsTeamsApiRouter, MsTeamsPageRouter } from "express-msteams-host";
 import * as debug from "debug";
 import * as compression from "compression";
 
+// importing api 
+import copyFile from './api/copyFile' ;
 
 
 // Initialize debug logging module
@@ -62,6 +64,12 @@ express.use(MsTeamsPageRouter({
 express.use("/", Express.static(path.join(__dirname, "web/"), {
     index: "index.html"
 }));
+
+
+// use Routes ( Api )
+express.use('/api/File/create' ,copyFile );
+
+
 
 // Set the port
 express.set("port", port);

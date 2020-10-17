@@ -63,7 +63,7 @@ const isTest = process.env.NODE_ENV === 'test';
 const isDev = !isProd && !isTest;
 
 const styles = () => {
-    return src('src/app/**/*.scss')
+    return src('src/app/**/*.css')
         .pipe($.plumber())
         .pipe($.if(!isProd, $.sourcemaps.init()))
         .pipe($.sass.sync({

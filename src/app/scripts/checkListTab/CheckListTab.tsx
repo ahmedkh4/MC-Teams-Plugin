@@ -2,7 +2,8 @@ import * as React from "react";
 import { Provider, Flex, Text, Button, Header } from "@fluentui/react-northstar";
 import TeamsBaseComponent, { ITeamsBaseComponentState } from "msteams-react-base-component";
 import * as microsoftTeams from "@microsoft/teams-js";
-import Modal from "./Modal" ;
+import SimpleModal from "./SimpleModal"
+
 /**
  * State for the checkListTabTab React component
  */
@@ -42,11 +43,23 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
             });
         }
     }
+    public confirmation = () => {
+        return 
+            <div> 
+                <p>hello</p>
+            </div>
+        
+        
+            
+            
+    }
 
     /**
      * The render() method to create the UI of the tab
      */
     public render() {
+
+        
         return (
             <Provider theme={this.state.theme}>
                 <Flex fill={true} column styles={{
@@ -56,19 +69,21 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
                         <Header content="This is your tab Ahmed " />
                     </Flex.Item>
                     <Flex.Item>
+                       
                         <div>
-                        <div><Modal></Modal></div>
+
                            <div>
+                                
                                 <Text content={this.state.entityId} />
                             </div>
                             <div>
-                               <Button className="btn btn-info" onClick={() => alert("It worked!")}>A  button</Button> {" "}
+                                <SimpleModal/>
+                               <Button className="btn btn-info" onClick={() => alert(this.confirmation)}>A  button 1</Button> {" "}
 
                                <Button className="btn btn-danger" onClick={() =>alert("second buttton")}>A  button</Button>
-                            </div>
-                            <div><Modal></Modal></div>
+                            </div>  
+
                         </div>
-                           
                     </Flex.Item>
                     <Flex.Item styles={{
                         padding: ".8rem 0 .8rem .5rem"
