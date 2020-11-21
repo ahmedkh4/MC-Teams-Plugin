@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import { PrimaryButton } from 'msteams-ui-components-react';
 
-import Form from "./form"
+
+
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: 500,
       backgroundColor: theme.palette.background.paper,
       border: '2px solid #000',
       boxShadow: theme.shadows[5],
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function SimpleModal() {
+export default function SimpleModal({form , title , name}) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -47,19 +49,26 @@ export default function SimpleModal() {
   };
 
   const body = (
+  <div className="center">
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="title">Form</h2>
-      <p id="description"> fill in the form </p>
-      <Form/>
+      {/* <img src="../../web/assets/alpha.png"  ></img> */}
+      <h2 id="title" className="text-danger text-center mb-5">{title}</h2>
+      {/* <p id="description"> fill in the form </p> */}
+      <div>
+      {form}
+      </div>
+    
       {/* <SimpleModal /> */}
+    </div>
     </div>
   );
 
   return (
     <div>
-      <button type="button" onClick={handleOpen} className="btn btn-info">
-        New Checklist
-      </button>
+      <PrimaryButton onClick={handleOpen} autoFocus> {name}</PrimaryButton>
+      {/* <button type="button"  className="btn btn-info">
+        {name}
+      </button> */}
       <Modal
         open={open}
         onClose={handleClose}

@@ -67,8 +67,8 @@ express.use("/", Express.static(path.join(__dirname, "web/"), {
 
 
 // use Routes ( Api )
-express.use('/api/File/create' ,copyFile );
-
+express.use('/api/File' ,copyFile );
+express.use('/api/File' ,copyFile );
 
 
 // Set the port

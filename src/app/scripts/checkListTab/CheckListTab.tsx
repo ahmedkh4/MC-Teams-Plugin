@@ -4,6 +4,10 @@ import TeamsBaseComponent, { ITeamsBaseComponentState } from "msteams-react-base
 import * as microsoftTeams from "@microsoft/teams-js";
 import SimpleModal from "./SimpleModal"
 
+import Form from "./form"
+import FormDel from "./formDel"
+
+
 /**
  * State for the checkListTabTab React component
  */
@@ -43,16 +47,12 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
             });
         }
     }
-    public confirmation = () => {
-        return 
-            <div> 
-                <p>hello</p>
-            </div>
+   
         
         
             
             
-    }
+    
 
     /**
      * The render() method to create the UI of the tab
@@ -66,7 +66,7 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
                     padding: ".8rem 0 .8rem .5rem"
                 }}>
                     <Flex.Item>
-                        <Header content="This is your tab Ahmed " />
+                        <Header content="check List tab  " />
                     </Flex.Item>
                     <Flex.Item>
                        
@@ -76,11 +76,21 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
                                 
                                 <Text content={this.state.entityId} />
                             </div>
-                            <div>
-                                <SimpleModal/>
-                               <Button className="btn btn-info" onClick={() => alert(this.confirmation)}>A  button 1</Button> {" "}
+                            
 
-                               <Button className="btn btn-danger" onClick={() =>alert("second buttton")}>A  button</Button>
+                                <div className="row"> 
+                                <div className="col m4"> 
+                                <SimpleModal name={"New Check List"}  title={"Add Project Check List"} form={<Form/>}/> 
+                                </div>
+
+                                 <div className="col m4">
+                                <SimpleModal name={"Delete Check List"}  title={"Delete Project Check List"} form={<FormDel/>}/>
+                                </div>
+
+
+                                
+                                
+                            
                             </div>  
 
                         </div>
@@ -94,4 +104,5 @@ export class CheckListTab extends TeamsBaseComponent<ICheckListTabProps, ICheckL
             </Provider>
         );
     }
+
 }
